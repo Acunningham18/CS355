@@ -1,15 +1,19 @@
-function toggleDarkMode() {
-    const body = document.body;
-    body.classList.toggle("dark-mode");
+// Apply dark mode on page load if saved in localStorage
 
-    // Save dark mode state to localStorage
-    localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+$('#darkBtn').addEventListener('click',toggleDark)
 
-    console.log("Dark Mode Toggled:", body.classList.contains("dark-mode"));
+    function toggleDark(){
+        if ($(':root').hasAttribute('dark-mode')){
+        localStorage.setItem('mode', "light");
+        $(':root').removeAttribute('dark-mode');
+    }else{
+        localStorage.setItem ('mode', 'dark');
+        $(':root').setAttribute('dark-mode',true);
+    }
 }
 
-// Apply dark mode on page load if saved in localStorage
-if (localStorage.getItem("darkMode") === "true") {
-    document.body.classList.add("dark-mode");
-    console.log("Dark Mode Applied on Page Load");
+function main (){
+    if(localStorage.getItem('mode')==='dark'){
+        $(':root').setAttribute('dark-mode',true);
+    }
 }
