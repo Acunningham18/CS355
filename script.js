@@ -2,20 +2,22 @@
 
 const $ = document.querySelector.bind(document);
 
-$('#darkBtn').addEventListener('click',toggleDark)
+$('#darkBtn').addEventListener('click', toggleDark);
 
-    function toggleDark(){
-        if ($(':root').hasAttribute('dark-mode')){
+function toggleDark() {
+    if ($('body').hasAttribute('dark-mode')) {
         localStorage.setItem('mode', "light");
-        $(':root').removeAttribute('dark-mode');
-    }else{
-        localStorage.setItem ('mode', 'dark');
-        $(':root').setAttribute('dark-mode',true);
+        $('body').removeAttribute('dark-mode');
+    } else {
+        localStorage.setItem('mode', 'dark');
+        $('body').setAttribute('dark-mode', true);
     }
 }
 
-function main (){
-    if(localStorage.getItem('mode')==='dark'){
-        $(':root').setAttribute('dark-mode',true);
+function main() {
+    if (localStorage.getItem('mode') === 'dark') {
+        $('body').setAttribute('dark-mode', true);
     }
 }
+
+main(); // Call the main function on page load
