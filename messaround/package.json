@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+
+// index.js
+const express = require('express'), // load express module
+ app = express(); // initiate app
+app.get('/', (req, res)=>{ // for GET / requests
+ res.send('Hello World!') // respond 'Hello World!'
+});
+
+app.listen( 3000 ); 
