@@ -1,5 +1,7 @@
 // Apply dark mode on page load if saved in localStorage
 
+const $ = document.querySelector.bind(document);
+
 $('#darkBtn').addEventListener('click',toggleDark)
 
     function toggleDark(){
